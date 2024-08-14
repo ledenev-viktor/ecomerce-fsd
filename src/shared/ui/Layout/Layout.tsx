@@ -1,22 +1,33 @@
 import styled from '@emotion/styled';
+import { ReactNode } from 'react';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
-const LayoutBase = ({ className }: { className: string }) => {
+type LayoutProps = {
+  className?: string;
+  headerSlot?: ReactNode;
+  footerSlot?: ReactNode;
+  sidebarSlot?: ReactNode;
+};
+
+const LayoutBase = ({
+  className,
+  headerSlot,
+  footerSlot,
+  sidebarSlot,
+}: LayoutProps) => {
   return (
     <div className={className}>
-      <header>header</header>
-      <main>
-        <Outlet />
+      {headerSlot}
+      <main className="main">
+        <div>
+          <Outlet />
+        </div>
+        {sidebarSlot && <aside>{sidebarSlot}</aside>}
       </main>
-      <footer>footer</footer>
+      {footerSlot}
       <ScrollRestoration />
     </div>
   );
 };
 
-export const Layout = styled(LayoutBase)`
-  * {
-    color: var(--text-color);
-    background: var(--background-color);
-  }
-`;
+export const Layout = styled(LayoutBase)``;

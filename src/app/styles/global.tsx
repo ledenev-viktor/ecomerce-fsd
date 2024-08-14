@@ -1,19 +1,16 @@
 import { Global, css } from '@emotion/react';
+import { resetStyles } from './reset';
+import { variables } from './variables';
 
 const GlobalStyles = () => (
   <Global
     styles={css`
-      :root {
-      }
+      ${variables}
+      ${resetStyles}
 
-      html[data-theme='light'] {
-        --text-color: #000;
-        --background-color: #fff;
-      }
-
-      html[data-theme='dark'] {
-        --text-color: #fff;
-        --background-color: #000;
+      * {
+        color: var(--text-color);
+        background: var(--background-color);
       }
     `}
   />
