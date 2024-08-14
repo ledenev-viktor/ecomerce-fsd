@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     define: {
       __HOME_PATH__:
         mode === 'production'
-          ? JSON.stringify('/ecommerce-fsd')
+          ? JSON.stringify('/ecomerce-fsd')
           : JSON.stringify('/'),
     },
     plugins: [
@@ -24,6 +24,6 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
     },
-    base: mode === 'development' ? '/' : '/ecomerce-fsd/',
+    base: mode === 'production' ? '/ecomerce-fsd' : '/',
   };
 });
