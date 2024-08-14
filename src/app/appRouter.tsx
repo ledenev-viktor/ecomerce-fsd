@@ -3,26 +3,29 @@ import { baseLayout } from './layouts/baseLayouts';
 import { MainPage } from '~/pages/main';
 
 export function appRouter() {
-  return createBrowserRouter([
-    {
-      element: baseLayout,
-      errorElement: <div>error</div>,
-      children: [
-        {
-          path: '/category',
-          element: <div>Category</div>,
-        },
-      ],
-    },
-    {
-      element: baseLayout,
-      errorElement: <div>error</div>,
-      children: [
-        {
-          path: '/',
-          element: <MainPage />,
-        },
-      ],
-    },
-  ]);
+  return createBrowserRouter(
+    [
+      {
+        element: baseLayout,
+        errorElement: <div>error</div>,
+        children: [
+          {
+            path: '/category',
+            element: <div>Category</div>,
+          },
+        ],
+      },
+      {
+        element: baseLayout,
+        errorElement: <div>error</div>,
+        children: [
+          {
+            path: '/',
+            element: <MainPage />,
+          },
+        ],
+      },
+    ],
+    { basename: __HOME_PATH__ },
+  );
 }
