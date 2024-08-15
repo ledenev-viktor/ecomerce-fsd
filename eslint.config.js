@@ -33,6 +33,9 @@ export default [
         { allowConstantExport: true },
       ],
     },
+    globals: {
+      __HOME_PATH__: 'readonly',
+    }
   },
   {
     ignores: ['dist', 'coverage'],
